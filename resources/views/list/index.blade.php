@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
     <title>Liste des modules</title>
     <meta charset="utf-8">
@@ -9,33 +10,75 @@
 </head>
 
 <body>
-    <ul>
-        <li><a href="#home">Acceuil</a></li>
-        <li><a href="#news">Relevés</a></li>
-        <li><a href="#contact">Météo</a></li>
-    </ul>
-
+    <div id="nav" class="navbar">
+        <ul>
+            <li><a href="#home">Acceuil</a></li>
+            <li><a href="#news">Relevés</a></li>
+            <li><a href="#meteo">Météo</a></li>
+        </ul>
+    </div>
     <div id="panel" class="module-state">
         <h1 class="text-panel">Les modules sont opérationnels</h1>
     </div>
-    <div id="Module1" class="module-list">
-        <div id="number" class="number">
-        </div>
-        <div id="plant_name" class="name">
-            <h2>Nom de la plante</h2>
-        </div>
-        <div class="air">
-        </div>
-        <div class="humidity">
-            <h2>Humidité du sol</h2>
-            <hr>
+    <div id="card1" class="card">
+        <div class="container">
+            <div class="top">
+                <div class="plant_name">
+                    <h2>Nom de la plante</h2>
+                </div>
+            </div>
+            <div class="moisture">
+                <h3>Humidité du sol</h3>
+                <hr>
+                <h2>70%</h2>
+            </div>
+            <div class="column1">
+                <h3>Hygrométrie</h3>
+            </div>
+            <div class="column2">
+                <h3>Température</h3>
+            </div>
         </div>
     </div>
-    <div id="Module2" class="module-list">
-        <p>salut</p>
+    <div id="card2" class="card">
+        <div class="container">
+            <div class="top">
+                <div class="plant_name">
+                    <h2>Nom de la plante</h2>
+                </div>
+            </div>
+            <div class="moisture">
+                <h3>Humidité du sol</h3>
+                <hr>
+                <h2>70%</h2>
+            </div>
+            <div class="column1">
+                <h3>Hygrométrie</h3>
+            </div>
+            <div class="column2">
+                <h3>Température</h3>
+            </div>
+        </div>
     </div>
-    <div id="Module3" class="module-list">
-        <p>salut</p>
+    <div id="card3" class="card">
+        <div class="container">
+            <div class="top">
+                <div class="plant_name">
+                    <h2>Nom de la plante</h2>
+                </div>
+            </div>
+            <div class="moisture">
+                <h3>Humidité du sol</h3>
+                <hr>
+                <h2>70%</h2>
+            </div>
+            <div class="column1">
+                <h3>Hygrométrie</h3>
+            </div>
+            <div class="column2">
+                <h3>Température</h3>
+            </div>
+        </div>
     </div>
 </body>
 

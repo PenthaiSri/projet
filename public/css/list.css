@@ -26,29 +26,6 @@ li a:hover {
     background-color: #111;
 }
 
-#Module1 {
-    display: inline;
-    float: left;
-}
-
-#Module2 {
-    float: left;
-    display: inline;
-}
-
-#Module3 {
-    float: left;
-    display: inline;
-}
-
-.number {
-    float: left;
-    display: inline;
-    text-align: center;
-    background-color: grey;
-    font-size: large;
-}
-
 .name {
     display: inline;
     text-align: center;
@@ -62,13 +39,62 @@ li a:hover {
     margin-right: 20%;
     padding: 1%;
     opacity: 80%;
+    border-radius: 5px;
+    text-align: center;
 }
 
-.module-list {
-    background-color: white;
-    width: 400px;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 5px;
+.card {
+    margin: 4%;
+    float: left;
+    background-color: grey;
+    border-radius: 15px;
+    width: 25%;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.top {
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.name {
+    border-radius: 5px;
+    background-color: white;
+    text-align: center;
+    float: right;
+    width: auto;
+}
+
+.air {
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.column1 {
+    background-color: white;
+    float: left;
+    text-align: center;
+    width: 48%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.column2 {
+    background-color: white;
+    width: 48%;
+    float: right;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.moisture {
+    background-color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.container {
+    margin: 20px;
 }
