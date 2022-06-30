@@ -6,7 +6,7 @@
     <title>Liste des modules</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../../css/app.css">
+    <link href="{{url('css/list.css')}}" rel="stylesheet" type="text/css">
 
     <style>
     body {
@@ -40,6 +40,7 @@
 </head>
 
 <body>
+    <h1>Hello world !</h1>
     <ul>
         <li><a href="#home">Acceuil</a></li>
         <li><a href="#news">Relevés</a></li>
