@@ -1,9 +1,5 @@
-h1 {
-    color: blue;
-}
-
 body {
-    background-color: #caf52d;
+    background-color: rgb(91, 128, 79);
 }
 
 ul {
@@ -15,7 +11,7 @@ ul {
 }
 
 li {
-    float: center;
+    float: left;
 }
 
 li a {
@@ -28,4 +24,51 @@ li a {
 
 li a:hover {
     background-color: #111;
+}
+
+#Module1 {
+    display: inline;
+    float: left;
+}
+
+#Module2 {
+    float: left;
+    display: inline;
+}
+
+#Module3 {
+    float: left;
+    display: inline;
+}
+
+.number {
+    float: left;
+    display: inline;
+    text-align: center;
+    background-color: grey;
+    font-size: large;
+}
+
+.name {
+    display: inline;
+    text-align: center;
+}
+
+.module-state {
+    color: white;
+    background-color: rgb(58, 55, 55);
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 1%;
+    opacity: 80%;
+}
+
+.module-list {
+    background-color: white;
+    width: 400px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 5px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
