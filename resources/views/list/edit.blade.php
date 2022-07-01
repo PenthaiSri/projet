@@ -11,10 +11,10 @@
 <div id="nav" class="navbar">
         <div class="centered-nav">
             <ul>
-                <li><a href="/acceuil">Acceuil</a></li>
-                <li><a href="/list">Relevés</a></li>
-                <li><a href="/meteo">Météo</a></li>
-                <li><a href="/admin">Administration</a></li>
+                <li><a href="../home">Acceuil</a></li>
+                <li><a href="../list">Relevés</a></li>
+                <li><a href="#meteo">Météo</a></li>
+                <li><a href="list/create">Administration</a></li>
             </ul>
         </div>
     </div>
