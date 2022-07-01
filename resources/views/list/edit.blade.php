@@ -24,10 +24,9 @@
     <div class="admin-panel">
         <h1>Administration</h1>
         <strong>
-            <p style="color: white;">Création d'un module</p>
+            <p style="color: white;">Modification du module</p>
         </strong>
-        <a href="../list"><button type="submit" id="module-cancel" class="cancel-button">Annuler la création</button></a>
-        <button id="user-gest" class="user-create-button">Création d'un utilisateur</button>
+        <a href="../list"><button type="submit" id="module-cancel" class="cancel-button">Annuler la modification</button></a>
         <hr>
         <div class="module-create">
             <input id="name" class="textfield" type="text" placeholder="Nom de la plante">

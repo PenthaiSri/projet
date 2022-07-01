@@ -11,11 +11,14 @@
 
 <header>
 <div id="nav" class="navbar">
-        <ul>
-            <li><a href="#home">Acceuil</a></li>
-            <li><a href="#news">Relevés</a></li>
-            <li><a href="#meteo">Météo</a></li>
-        </ul>
+        <div class="centered-nav">
+            <ul>
+                <li><a href="/acceuil">Acceuil</a></li>
+                <li><a href="/list">Relevés</a></li>
+                <li><a href="/meteo">Météo</a></li>
+                <li><a href="/admin">Administration</a></li>
+            </ul>
+        </div>
     </div>
 </header>
 <body>
@@ -41,6 +44,10 @@
                 <h3>Température</h3>
             </div>
         </div>
+        <div class="action-button">
+            <a href=""><button id="remove-module" class="remove">Supprimer le module</button></a>
+            <a href=""><button id="edit-module" class="edit">Modifier le module</button></a>
+        </div>
     </div>
     <div id="card2" class="card">
         <div class="container">
@@ -60,6 +67,10 @@
             <div class="column2">
                 <h3>Température</h3>
             </div>
+        </div>
+        <div class="action-button">
+            <a href=""><button id="remove-module" class="remove">Supprimer le module</button></a>
+            <a href=""><button id="edit-module" class="edit">Modifier le module</button></a>
         </div>
     </div>
     <div id="card3" class="card">
@@ -81,6 +92,11 @@
                 <h3>Température</h3>
             </div>
         </div>
+        <div class="action-button">
+            <a href=""><button id="remove-module" class="remove">Supprimer le module</button></a>
+            <a href=""><button id="edit-module" class="edit">Modifier le module</button></a>
+        </div>
     </div>
 </body>
+
 </html>

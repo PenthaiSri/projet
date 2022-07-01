@@ -1,9 +1,108 @@
 header {
+    color: white;
+    text-align: center;
     background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin-top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: none;
+    display: inline-block;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
 }
 
 body {
     background-color: rgb(91, 128, 79);
+}
+
+.admin-panel {
+    color: white;
+    border: 4px solid rgba(161, 241, 124, 0.6);
+    background-color: #333;
+    opacity: 80%;
+    text-align: center;
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 60%;
+    border-radius: 15px;
+    padding: 2%;
+}
+
+.textfield {
+    text-align: center;
+    width: auto;
+    height: 50px;
+    font-size: larger;
+}
+
+.percentage {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    font-size: larger;
+}
+
+.set-humidity {
+    color: black;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+.set-air-details {
+    color: black;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+button {
+    width: 15%;
+    height: auto;
+    text-align: center;
+    border-radius: 15px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.register-button {
+    background-color: rgb(51, 49, 143);
+    color: white;
+    font-weight: bold;
+    border-color: rgb(51, 49, 143);
+}
+
+.user-create-button {
+    background-color: rgb(66, 128, 66);
+    color: white;
+    font-weight: bold;
+    border-color: rgb(66, 128, 66);
+}
+
+.cancel-button {
+    background-color: coral;
+    color: white;
+    font-weight: bold;
+    border-color: coral;
 }
 
 footer {

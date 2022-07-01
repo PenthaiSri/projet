@@ -1,8 +1,22 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-color: rgb(91, 128, 79);
 }
 
+header {
+    color: white;
+    text-align: center;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
 ul {
+    margin-top: 0;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -11,7 +25,8 @@ ul {
 }
 
 li {
-    float: left;
+    float: none;
+    display: inline-block;
 }
 
 li a {
@@ -44,9 +59,10 @@ li a:hover {
 }
 
 .card {
+    border: 2px solid rgb(169, 204, 45);
     margin: 4%;
     float: left;
-    background-color: grey;
+    background-color: rgb(70, 70, 70);
     border-radius: 15px;
     width: 25%;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -97,4 +113,34 @@ li a:hover {
 
 .container {
     margin: 20px;
+}
+
+.action-button {
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    display: inline-block;
+}
+
+.remove {
+    margin-bottom: 2%;
+    margin-right: 2%;
+    border-radius: 15px;
+    border-color: red;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.edit {
+    margin-bottom: 2%;
+    margin-left: 2%;
+    border-radius: 15px;
+    border-color: rgb(43, 91, 248);
+    background-color: rgb(43, 91, 248);
+    color: white;
+    font-weight: bold;
+    text-align: center;
 }

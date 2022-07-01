@@ -28,3 +28,7 @@ Route::get('/list', function () {
 Route::get('/list/create', function () {
     return view('list/create');
 });
+
+Route::get('/list/edit', function () {
+    return view('list/edit');
+});
