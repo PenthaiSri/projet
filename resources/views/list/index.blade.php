@@ -9,14 +9,16 @@
     <link href="{{url('css/list.css')}}" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-    <div id="nav" class="navbar">
+<header>
+<div id="nav" class="navbar">
         <ul>
             <li><a href="#home">Acceuil</a></li>
             <li><a href="#news">Relevés</a></li>
             <li><a href="#meteo">Météo</a></li>
         </ul>
     </div>
+</header>
+<body>
     <div id="panel" class="module-state">
         <h1 class="text-panel">Les modules sont opérationnels</h1>
     </div>
@@ -81,5 +83,4 @@
         </div>
     </div>
 </body>
-
 </html>

@@ -24,3 +24,7 @@ Route::get('/login', function () {
 Route::get('/list', function () {
     return view('/list/index');
 });
+
+Route::get('/list/create', function () {
+    return view('list/create');
+});
