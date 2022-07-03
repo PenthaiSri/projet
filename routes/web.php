@@ -1,5 +1,6 @@
 <?php
 
+use app\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,3 +37,5 @@ Route::get('/list/edit', function () {
 Route::get('/list/show', function () {
     return view('list/show');
 });
+
+Route::post("login", 'App\Http\Controllers\AuthController@login');

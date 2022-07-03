@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="action-button">
-            <a href=""><button id="remove-module" class="remove">Supprimer le module</button></a>
+            <a href=""><button id="remove-module" class="remove">réanitialiser le module</button></a>
             <a href=""><button id="edit-module" class="edit">Modifier le module</button></a>
         </div>
     </div>
@@ -69,7 +69,7 @@
             </div>
         </div>
         <div class="action-button">
-            <a href=""><button id="remove-module" class="remove">Supprimer le module</button></a>
+            <a href=""><button id="remove-module" class="remove">réanitialiser le module</button></a>
             <a href=""><button id="edit-module" class="edit">Modifier le module</button></a>
         </div>
     </div>
@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="action-button">
-            <a href=""><button id="remove-module" class="remove">Supprimer le module</button></a>
+            <a href=""><button id="remove-module" class="remove">réanitialiser le module</button></a>
             <a href=""><button id="edit-module" class="edit">Modifier le module</button></a>
         </div>
     </div>
