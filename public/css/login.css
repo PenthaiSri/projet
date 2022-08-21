@@ -13,7 +13,7 @@ body {background-color: rgb(91, 128, 79);
     height: 70%;
     border-radius: 15px;
     border : 4px ridge green;
-    background-color: grey;
+    background-color: rgb(103, 139, 69);
     padding: .5rem ;
     display: flex;
     flex-direction: column; 
