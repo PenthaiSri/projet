@@ -1,6 +1,7 @@
 <?php
 
 use app\Http\Controllers\AuthController;
+use app\Http\Controllers\ModuleController as Module;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,21 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/login', 'auth/login');
+
+Route::get('/register', function () {
+    return view('/auth/register');
 });
 
-Route::get('/login', function () {
-    return view('/auth/login');
-});
+Route::view('/list', 'list/index');
 
-Route::get('/list', function () {
-    return view('/list/index');
-});
-
-Route::get('/list/create', function () {
-    return view('list/create');
-});
+Route::view('/list/create', 'list/create');
 
 Route::get('/list/edit', function () {
     return view('list/edit');
@@ -38,4 +33,26 @@ Route::get('/list/show', function () {
     return view('list/show');
 });
 
-Route::post("login", 'App\Http\Controllers\AuthController@login');
+/**
+ * Route POST
+ * Fait appel à la methode login dans le controller Auth
+ */
+Route::post("connect", 'App\Http\Controllers\AuthController@login');
+
+/**
+ * Route GET
+ * Fait appel à la methode stopSession dans le controller Auth
+ */
+Route::get("logout", 'App\Http\Controllers\AuthController@stopSession');
+
+/**
+ * Route POST
+ * Fait appel à la methode register dans le controller Auth
+ */
+Route::post("signin", 'App\Http\Controllers\AuthController@register');
+
+/**
+ * Route POST
+ * Fait appel à la méthode create dans le controller createModule
+ */
+Route::post("list/createModule", 'App\Http\Controllers\ModuleController@createModule');
