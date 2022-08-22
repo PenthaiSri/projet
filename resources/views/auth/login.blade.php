@@ -4,11 +4,17 @@
 <head>
     <title>Login page</title>
     <link rel="stylesheet" type="text/css" href="{{url('css/login.css')}}">
+    <style>
+    body {
+        background-image: url('/projet/resources/images/background.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    </style>
 </head>
 
 <body>
-
-
     <div class="auth">
         <h1>Authentification</h1>
         <!-- Div pour entrer les info et valider -->
