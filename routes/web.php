@@ -25,6 +25,8 @@ Route::view('/list', 'list/index');
 
 Route::view('/list/create', 'list/create');
 
+Route::view('/admin/create', 'admin/manage_user');
+
 Route::get('/list/edit', function () {
     return view('list/edit');
 });
@@ -56,3 +58,9 @@ Route::post("signin", 'App\Http\Controllers\AuthController@register');
  * Fait appel à la méthode create dans le controller createModule
  */
 Route::post("list/createModule", 'App\Http\Controllers\ModuleController@createModule');
+
+/**
+ * Route POST
+ * Fait appel à la méthode addUser dans le controller User
+ */
+Route::post("admin/create", 'App\Http\Controllers\UserController@addUser');

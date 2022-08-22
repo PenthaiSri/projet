@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <?php
 use \App\Http\Controllers\SessionController;
+use App\Models\User;
+
 echo SessionController::checkIfConnected();
+SessionController::adminOnly();
 ?>
 
 <html>
@@ -18,8 +21,10 @@ echo SessionController::checkIfConnected();
                 <li><a href="home">Acceuil</a></li>
                 <li><a href="list">Relevés</a></li>
                 <li><a href="#meteo">Météo</a></li>
-                <li><a href="list/create">Administration</a></li>
-                <li><a href="logout" id="logout-button">Déconnexion<a></li>
+                <?php if ($_SESSION['role_id'] == User::ADMIN) {?>
+                    <li><a href="list/create">Administration</a></li>
+                <?php } ?>
+                <li><a href="logout" id="logout-button">Déconnexion</a></li>
             </ul>
         </div>
     </div>

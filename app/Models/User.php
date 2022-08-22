@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class User {
     
+    const ADMIN = 1;
+    const EMPLOYE = 2;
     protected $table = 't_users';
 
     /**
@@ -35,7 +37,7 @@ class User {
      */
     public function getByEmail($sEmail)
     {
-        $bRequest = DB::table('t_users')->select('usr_id', 'usr_firstname', 'usr_lastname', 'usr_email', 'usr_password')->where('usr_email', '=', $sEmail)->get();
+        $bRequest = DB::table('t_users')->select('usr_id', 'role_id', 'usr_firstname', 'usr_lastname', 'usr_email', 'usr_password')->where('usr_email', '=', $sEmail)->get();
         return $bRequest;
     }
 
@@ -65,6 +67,37 @@ class User {
     }
 
     /**
+     * Permet d'enregistrer un utilisateur en base de données
+     * 
+     * @since   1.2206
+     * @version 1.0.0
+     * 
+     * @param   $iRole          ID du role
+     * @param   $iFonction      ID de sa fonction
+     * @param   $sFirstname     Prénom de l'utilisateur
+     * @param   $sLastname      Nom de l'utilisateur
+     * @param   $sEmail         Email de l'utilisateur
+     * @param   $iPhone         Numéro de téléphone
+     * @param   $sPassword      Mot de passe hashé de l'utilisateur
+     * 
+     * @return  boolean
+     */
+    public function addUser($iRole, $iFonction, $sFirstname, $sLastname, $sEmail, $iPhone, $sPassword)
+    {
+        $bRequest = DB::table('t_users')->insert([
+            'role_id' => $iRole,
+            'ftn_id' => $iFonction,
+            'usr_firstname' => $sFirstname,
+            'usr_lastname' => $sLastname,
+            'usr_email' => $sEmail,
+            'usr_phone' => $iPhone,
+            'usr_password' => $sPassword,
+            'log_created_at' => Carbon::now()->timezone('Europe/Paris')
+        ]);
+        return $bRequest;
+    }
+
+    /**
      * Récupère un user depuis son id
      * 
      * @since   1.2206
@@ -76,7 +109,15 @@ class User {
      */
     public function getById($iId)
     {
-        
+        $bRequest = DB::table('t_users')->select(
+            'role_id',
+            'ftn_id',
+            'usr_firstname',
+            'usr_lastname',
+            'usr_email'
+
+        )->where('usr_id', '=', $iId)->get();
+        return $bRequest;
     }
 
     /**

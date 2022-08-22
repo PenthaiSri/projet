@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class ModuleController extends BaseController {
 
     /**
-     * Methide showModule
+     * Methode showModule
      * 
      * Methode permettant de renvoyer sur la page détaillée des modules
      * 
@@ -21,9 +21,8 @@ class ModuleController extends BaseController {
      */
     public function showModule()
     {
-        // Récupère les informations du module en fonction de son ID
-
-        // Si erreur, renvoie un message d'erreur
+        // Charge les classes nécessaires
+        $oModuleModel = new Module();
     }
 
     /**
