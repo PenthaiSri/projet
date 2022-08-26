@@ -2,8 +2,6 @@ body {background-color: rgb(91, 128, 79);
 
 }
 
-
-
 .auth{
     margin: 0 auto;
     margin-top: 10%;
@@ -47,13 +45,16 @@ body {background-color: rgb(91, 128, 79);
     margin: 5 auto;
 }
 
+.links{
+    width: 100%
+}
+
 .pwdforgot{
-    text-align: left;
+    float: left;
     font-size: large;
 }
 
 .register{
-    text-align: right;
+    float: right;
     font-size: large;
 }
-
