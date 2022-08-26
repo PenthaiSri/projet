@@ -21,7 +21,7 @@ SessionController::adminOnly();
                 <li><a href="home">Acceuil</a></li>
                 <li><a href="list">Relevés</a></li>
                 <li><a href="#meteo">Météo</a></li>
-                <?php if ($_SESSION['role_id'] == User::ADMIN) {?>
+                <?php if (isset($_SESSION['role_id']) && $_SESSION['role_id']== User::ADMIN) {?>
                     <li><a href="list/create">Administration</a></li>
                 <?php } ?>
                 <li><a href="logout" id="logout-button">Déconnexion</a></li>
@@ -30,79 +30,18 @@ SessionController::adminOnly();
     </div>
 </header>
 <body>
-    <div id="panel" class="module-state">
-        <h1 class="text-panel">Les modules sont opérationnels</h1>
-    </div>
-    <div id="card1" class="card">
-        <div class="container">
-            <div class="top">
-                <div class="plant_name">
-                    <h2>Nom de la plante</h2>
-                </div>
-            </div>
-            <div class="moisture">
-                <h3>Humidité du sol</h3>
-                <hr>
-                <h2>70%</h2>
-            </div>
-            <div class="column1">
-                <h3>Hygrométrie</h3>
-            </div>
-            <div class="column2">
-                <h3>Température</h3>
-            </div>
+    <div class="container">
+        <div class="card-header">
+            <h2>Tous les modules</h2>
         </div>
-        <div class="action-button">
-            <a href=""><button id="remove-module" class="remove">réanitialiser le module</button></a>
-            <a href=""><button id="edit-module" class="edit">Modifier le module</button></a>
-        </div>
-    </div>
-    <div id="card2" class="card">
-        <div class="container">
-            <div class="top">
-                <div class="plant_name">
-                    <h2>Nom de la plante</h2>
-                </div>
-            </div>
-            <div class="moisture">
-                <h3>Humidité du sol</h3>
-                <hr>
-                <h2>70%</h2>
-            </div>
-            <div class="column1">
-                <h3>Hygrométrie</h3>
-            </div>
-            <div class="column2">
-                <h3>Température</h3>
-            </div>
-        </div>
-        <div class="action-button">
-            <a href=""><button id="remove-module" class="remove">réanitialiser le module</button></a>
-            <a href=""><button id="edit-module" class="edit">Modifier le module</button></a>
-        </div>
-    </div>
-    <div id="card3" class="card">
-        <div class="container">
-            <div class="top">
-                <div class="plant_name">
-                    <h2>Nom de la plante</h2>
-                </div>
-            </div>
-            <div class="moisture">
-                <h3>Humidité du sol</h3>
-                <hr>
-                <h2>70%</h2>
-            </div>
-            <div class="column1">
-                <h3>Hygrométrie</h3>
-            </div>
-            <div class="column2">
-                <h3>Température</h3>
-            </div>
-        </div>
-        <div class="action-button">
-            <a href=""><button id="remove-module" class="remove">réanitialiser le module</button></a>
-            <a href=""><button id="edit-module" class="edit">Modifier le module</button></a>
+        <div class="card-body">
+            <table class="table">
+                <tr>
+                    <th>Nom de la plante</th>
+                    <th>État</th>
+                    <th>Action</th>
+                </tr>
+            </table>
         </div>
     </div>
 </body>

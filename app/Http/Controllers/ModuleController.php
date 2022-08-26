@@ -26,6 +26,28 @@ class ModuleController extends BaseController {
     }
 
     /**
+     * Permet l'affichage du tableau de la liste des modules actifs
+     * 
+     * @since   1.2207.0
+     * @version 1.2207.0
+     * 
+     * @return  boolean
+     */
+    public function moduleTable()
+    {
+        // Charge les classes nécessaires
+        $oModuleModel =  new Module();
+        $aModuleList = $oModuleModel->getAll();
+
+        if (!empty($aModuleList)) {
+            foreach($aModuleList as $aModule) {
+                $sName = $aModule->plant_name;
+                $iState = $aModule->ste_id;
+            }
+        }
+    }
+
+    /**
      * Methode createModule
      * 
      * Methode permettat de créer un module et l'enregistrer en BDD

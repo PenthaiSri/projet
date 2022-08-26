@@ -101,4 +101,18 @@ class Module {
         $sRequest = DB::table('t_modules')->select('*')->where('mde_id', '=', $iId)->get();
         return $sRequest;
     }
+
+    /**
+     * Récupère tous les modules enregistrées
+     * 
+     * @since   1.2207.0
+     * @version 1.2207.0
+     * 
+     * @return  array
+     */
+    public function getAll()
+    {
+        $sRequest = DB::select('SELECT * FROM t_modules');
+        return $sRequest;
+    }
 }
