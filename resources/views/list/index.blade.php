@@ -1,14 +1,16 @@
 <!DOCTYPE html>
+<?php
+use \App\Http\Controllers\SessionController;
+echo SessionController::checkIfConnected();
+?>
 
 <html>
-
 <head>
     <title>Liste des modules</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('css/list.css')}}" rel="stylesheet" type="text/css">
 </head>
-
 <header>
 <div id="nav" class="navbar">
         <div class="centered-nav">
@@ -17,6 +19,7 @@
                 <li><a href="list">Relevés</a></li>
                 <li><a href="#meteo">Météo</a></li>
                 <li><a href="list/create">Administration</a></li>
+                <li><a href="logout" id="logout-button">Déconnexion<a></li>
             </ul>
         </div>
     </div>

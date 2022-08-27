@@ -18,13 +18,13 @@
     <div class="auth">
         <h1>Authentification</h1>
         <!-- Div pour entrer les info et valider -->
-        <form method="POST" action="login">
+        <form method="POST" action="connect">
             @csrf
             <div class="container-email">
-                <input id="name" type="text" style="text-align: center;" placeholder="Identifiant" name="name" required>
+                <input id="name" type="text" style="height: 200%; width: 50%;" placeholder="Votre nom" name="name">
             </div>
             <div class="container-pwd">
-                <input id="password" type="password" style="text-align: center;" placeholder="Mot de passe" name="pwd" required>
+                <input id="password" type="password" style="height: 200%; width: 50%;" placeholder="Votre mot de passe" name="pwd">
             </div>
             <div class="bouton">
                 <button id="connect" style="height: 200%; width: 30%;" type="submit">Se connecter</button>
@@ -32,13 +32,11 @@
         </form>
 
         <!-- Div pour les href -->
-        <div class="links">
-            <div class="pwdforgot">
-                <a href="" style="text-decoration:none;color:white;"> Mot de passe oublié ?</a>
-            </div>
-            <div class="register">
-                <a href="" style="text-decoration:none;color:white;"> S'enregistrer</a>
-            </div>
+        <div class="pwdforgot">
+            <a href=""> mot de passe oublié ?</a>
+        </div>
+        <div class="register">
+            <a href=""> s'enregistrer</a>
         </div>
 
     </div>
