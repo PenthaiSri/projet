@@ -21,10 +21,10 @@
         <form method="POST" action="connect">
             @csrf
             <div class="container-email">
-                <input id="name" type="text" style="height: 200%; width: 50%;" placeholder="Votre nom" name="name">
+                <input id="name" type="text" style="text-align:center;" placeholder="Identifiant" name="name">
             </div>
             <div class="container-pwd">
-                <input id="password" type="password" style="height: 200%; width: 50%;" placeholder="Votre mot de passe" name="pwd">
+                <input id="password" type="password" style="text-align:center;" placeholder="Mot de passe" name="pwd">
             </div>
             <div class="bouton">
                 <button id="connect" style="height: 200%; width: 30%;" type="submit">Se connecter</button>
@@ -32,13 +32,14 @@
         </form>
 
         <!-- Div pour les href -->
-        <div class="pwdforgot">
-            <a href=""> mot de passe oublié ?</a>
+        <div class="links">
+            <div class="pwdforgot">
+                <a href="" style="text-decoration:none; color:#FFFFFF;">Mot de passe oublié ?</a>
+            </div>
+            <div class="register">
+                <a href="" style="text-decoration:none; color:#FFFFFF;">S'enregistrer</a>
+            </div>
         </div>
-        <div class="register">
-            <a href=""> s'enregistrer</a>
-        </div>
-
     </div>
 </body>
 
