@@ -5,7 +5,8 @@ namespace app\Models;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
-class Module {
+class Module
+{
     protected $sTable = 't_modules';
 
     /**
@@ -40,7 +41,7 @@ class Module {
         $fMaxTemp,
         $fMinAir,
         $fMaxAir
-    ){
+    ) {
         $bRequest = DB::table('t_modules')->insert([
             'plant_name' => $sName,
             'mde_locate' => $sLocate,
@@ -65,24 +66,62 @@ class Module {
      * @since   1.2206
      * @version 1.0
      * 
+     * @param   $iId            Integer Required        Id du module
+     * 
      * @return  bool Retourne true s'il n'y a pas d'erreurs, sinon false
      */
-    public function remove($id){
-
+    public function remove($iId)
+    {
+        $sRequest = DB::table('t_modules')->where('mde_id', '=', $iId)->delete();
+        return $sRequest;
     }
 
     /**
-     * Methode modify
-     * 
      * Permet de modifier un module en base de données
      * 
-     * @since   1.2206
-     * @version 1.0
+     * @since   1.2206.0
+     * @version 1.2207.0
+     * 
+     * @param   $iId            Integer Required        Id du module
+     * @param   $sName          String  Required        Nom donné au module
+     * @param   $sLocate        String  Not Required    Emplacement du module
+     * @param   $sDesc          String  Not Required    Description du module
+     * @param   $fGroundHum     Float   Required        Taux optimale d'humidité dans le sol
+     * @param   $fMinHum        Float   Required        Taux minimum d'humidité dans le sol
+     * @param   $fMaxHum        Float   Required        Taux maximum d'humidité dans le sol
+     * @param   $fMinTemp       Float   Not Required    Température minimum de l'air
+     * @param   $fMaxTemp       Float   Not Required    Température maximum de l'air
+     * @param   $fMinAir        Float   Not Required    Humidité minimum de l'air
+     * @param   $fMaxAir        Float   Not Required    Humidité maximum de l'air
      * 
      * @return  bool Retourne true s'il n'y a pas d'erreurs, sinon false
      */
-    public function modify($id){
-
+    public function modify(
+        $iId,
+        $sName,
+        $sLocate,
+        $sDesc,
+        $fGroundHum,
+        $fMinHum,
+        $fMaxHum,
+        $fMinTemp,
+        $fMaxTemp,
+        $fMinAir,
+        $fMaxAir
+    ) {
+        $sRequest = DB::table('t_modules')->where('mde_id', '=', $iId)->update([
+            'plant_name' => $sName,
+            'mde_locate' => $sLocate,
+            'mde_description' => $sDesc,
+            'mde_ground_humidity' => $fGroundHum,
+            'mde_min_soil' => $fMinHum,
+            'mde_max_soil' => $fMaxHum,
+            'mde_min_temp' => $fMinTemp,
+            'mde_max_temp' => $fMaxTemp,
+            'mde_min_air' => $fMinAir,
+            'mde_max_air' => $fMaxAir
+        ]);
+        return $sRequest;
     }
 
     /**
@@ -95,9 +134,10 @@ class Module {
      * 
      * @param   integer             $iId    Id du module
      * 
-     * @return  bool Retourne true s'il n'y a pas d'erreurs, sinon false
+     * @return  array|boolean 
      */
-    public function getById($iId){
+    public function getById($iId)
+    {
         $sRequest = DB::table('t_modules')->select('*')->where('mde_id', '=', $iId)->get();
         return $sRequest;
     }
@@ -112,7 +152,8 @@ class Module {
      */
     public function getAll()
     {
-        $sRequest = DB::select('SELECT * FROM t_modules');
+        $sRequest = DB::select('SELECT * FROM t_modules MDE
+        LEFT JOIN tr_states STE ON MDE.ste_id = STE.ste_id');
         return $sRequest;
     }
 }

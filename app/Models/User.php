@@ -17,11 +17,29 @@ class User {
      * @since   1.2206
      * @version 1.0.0
      * 
+     * @return  array|boolean
      */
     public function allUsers()
     {
-        $bRequest = DB::table('t_users')->get();
+        $bRequest = DB::table('t_users')->select('*')->get();
         return $bRequest;
+    }
+
+    /**
+     * Methode permettant de récupérer tous les utilisateurs
+     * 
+     * @since   1.2207.0
+     * @version 1.2207.0
+     * 
+     * @return  array|boolean
+     */
+    public function getAll()
+    {
+        $sRequest = DB::select('SELECT * FROM t_users USR
+        LEFT JOIN tr_roles TRS ON USR.role_id = TRS.role_id
+        LEFT JOIN tr_fonctions TFS ON USR.ftn_id = TFS.ftn_id');
+
+        return $sRequest;
     }
 
 
@@ -114,7 +132,8 @@ class User {
             'ftn_id',
             'usr_firstname',
             'usr_lastname',
-            'usr_email'
+            'usr_email',
+            'usr_phone'
 
         )->where('usr_id', '=', $iId)->get();
         return $bRequest;
@@ -128,11 +147,64 @@ class User {
      * 
      * @param   $sEmail         Email de l'utilisateur
      * 
-     * @return  boolean
+     * @return  array|boolean
      */
     public function checkIfExist($sEmail)
     {
         $bRequest = DB::table('t_users')->select('usr_email')->where('usr_email', '=', $sEmail)->get();
         return $bRequest;
+    }
+
+    /**
+     * Permet de supprimer un utilisateur de la base de données
+     * 
+     * @since   1.2207.0
+     * @version 1.2207.0
+     * 
+     * @param   integer $iId    Identifiant de l'utilisateur
+     * 
+     * @return  boolean
+     */
+    public function remove($iId)
+    {
+        $sRequest = DB::table('t_users')->where('usr_id', '=', $iId)->delete();
+        return $sRequest;
+    }
+
+    /**
+     * Permet de modifier un utilisateur en base de données
+     * 
+     * @since   1.2207.0
+     * @version 1.2207.0
+     * 
+     * @param   integer $iId        Identifiant de l'utilisateur
+     * @param   string  $sLastname  Nom de l'utilisateur
+     * @param   string  $sFirstname Prénom de l'utilisateur
+     * @param   string  $sEmail     Email de l'utilisateur
+     * @param   integer $iPhone     Numéro de téléphone de l'utilisateur
+     * @param   integer $iFonction  Fonction de l'utilisateur
+     * @param   integer $iRole      Role de l'utilisateur
+     * 
+     * @return  boolean
+     */
+    public function edit(
+        $iId,
+        $sLastname,
+        $sFirstname,
+        $sEmail,
+        $iPhone,
+        $iFonction,
+        $iRole
+    )
+    {
+        $sRequest = DB::table('t_users')->where('usr_id', '=', $iId)->update([
+            'usr_firstname' => $sFirstname,
+            'usr_lastname' => $sLastname,
+            'usr_email' => $sEmail,
+            'usr_phone' => $iPhone,
+            'ftn_id' => $iFonction,
+            'role_id' => $iRole
+        ]);
+        return $sRequest;
     }
 }

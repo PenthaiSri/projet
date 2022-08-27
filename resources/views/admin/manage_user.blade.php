@@ -2,16 +2,22 @@
 <?php
 
 use \App\Http\Controllers\SessionController;
+use App\Models\User;
 
 echo SessionController::checkIfConnected();
 echo SessionController::adminOnly();
+
+// Charge les classes nécessaires
+$aUserModel = new User();
+$aUserList = $aUserModel->getAll();
 ?>
 <html>
+
 <head>
     <title>Création d'un utilisateur</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{url('css/admin/create.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url('css/admin.css')}}" rel="stylesheet" type="text/css">
     <style>
         body {
             background-image: url('/projet/resources/images/background.jpg');
@@ -44,14 +50,27 @@ echo SessionController::adminOnly();
         <hr>
         <div class="user-list">
             <h3>Utilisateurs existants</h3>
-            <table id="table-users" class="user-table">
+            <table class="user-table">
                 <thead>
                     <tr>
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Fonction</th>
                         <th>Rôle</th>
+                        <th>Actions</th>
                     </tr>
+                    <?php foreach ($aUserList as $aUser) { ?>
+                        <tr>
+                            <td><?php echo ($aUser->usr_lastname) ?></td>
+                            <td><?php echo ($aUser->usr_firstname) ?></td>
+                            <td><?php echo ($aUser->ftn_name) ?></td>
+                            <td><?php echo ($aUser->role_name) ?></td>
+                            <td>
+                                <a class="edit-button" href="editUser?id=<?php echo($aUser->usr_id)?>">Modifier</a>
+                                <a class="delete-button" href="removeUser?id=<?php echo($aUser->usr_id)?>">Supprimer</a>
+                            <td>
+                        </tr>
+                    <?php } ?>
                 </thead>
             </table>
         </div>
@@ -88,8 +107,5 @@ echo SessionController::adminOnly();
         </div>
     </div>
 </body>
-<footer>
-
-</footer>
 
 </html>

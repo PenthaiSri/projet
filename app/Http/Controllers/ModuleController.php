@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Module;
+use Egulias\EmailValidator\Result\Reason\EmptyReason;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
@@ -23,28 +24,6 @@ class ModuleController extends BaseController {
     {
         // Charge les classes nécessaires
         $oModuleModel = new Module();
-    }
-
-    /**
-     * Permet l'affichage du tableau de la liste des modules actifs
-     * 
-     * @since   1.2207.0
-     * @version 1.2207.0
-     * 
-     * @return  boolean
-     */
-    public function moduleTable()
-    {
-        // Charge les classes nécessaires
-        $oModuleModel =  new Module();
-        $aModuleList = $oModuleModel->getAll();
-
-        if (!empty($aModuleList)) {
-            foreach($aModuleList as $aModule) {
-                $sName = $aModule->plant_name;
-                $iState = $aModule->ste_id;
-            }
-        }
     }
 
     /**
@@ -150,7 +129,19 @@ class ModuleController extends BaseController {
      */
     public function removeModule()
     {
-
+        session_start();
+        // Charge les classes nécessaires
+        $oModuleModel = new Module();
+        // Récupère l'id
+        $iId = $_SESSION['mde_id'];
+        $bRequest = $oModuleModel->remove($iId);
+        if ($bRequest === false) {
+            DB::rollBack();
+            return false;
+        }
+        unset($_SESSION['mde_id']);
+        return redirect('list');
+        return true;
     }
 
     /**
@@ -165,6 +156,70 @@ class ModuleController extends BaseController {
      */
     public function modifyModule()
     {
+        // récupère l'id du module
+        session_start();
+        $iId = $_SESSION['mde_id'];
+        // Charge les classes nécessaires
+        $oModuleModel = new Module();
 
+        // Récupère les données du formulaire
+        if (!empty($_POST['name']) && !empty($_POST['gr-humidity'])
+        && !empty($_POST['min-humidity']) && !empty($_POST['max-humidity'])) {
+            $sName = $_POST['name'];
+            $fGroundHum = $_POST['gr-humidity'];
+            $fMinHum = $_POST['min-humidity'];
+            $fMaxHum = $_POST['max-humidity'];
+        }
+
+        if (!empty($_POST['locate'])) {
+            $sLocate = $_POST['locate'];
+        } else { $sLocate = null; }
+
+        if (!empty($_POST['description'])) {
+            $sDesc = $_POST['description'];
+        } else { $sDesc = null; }
+
+        if (!empty($_POST['min-temp'])) {
+            $fMinTemp = $_POST['min-temp'];
+        } else { $fMinTemp = null; }
+
+        if (!empty($_POST['max-temp'])) {
+            $fMaxTemp = $_POST['max-temp'];
+        } else { $fMaxTemp = null; }
+
+        if (!empty($_POST['min-temp'])) {
+            $fMinTemp = $_POST['min-temp'];
+        } else { $fMinTemp = null; }
+
+        if (!empty($_POST['min-air'])) {
+            $fMinAir = $_POST['min-air'];
+        } else { $fMinAir = null; }
+
+        if (!empty($_POST['max-air'])) {
+            $fMaxAir = $_POST['max-air'];
+        } else { $fMaxAir = null; }
+
+        // Prépare la requête SQL
+        $bRequest = $oModuleModel->modify(
+            $iId,
+            $sName,
+            $sLocate,
+            $sDesc,
+            $fGroundHum,
+            $fMinHum,
+            $fMaxHum,
+            $fMinTemp,
+            $fMaxTemp,
+            $fMinAir,
+            $fMaxAir
+        );
+        if ($bRequest === false) {
+            DB::rollBack();
+            unset($_SESSION['mde_id']);
+        }
+        unset($_POST);
+        unset($_SESSION['mde_id']);
+        return redirect('list');
+        return true;
     }
 }
