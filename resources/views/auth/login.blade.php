@@ -21,7 +21,7 @@
         <form method="POST" action="connect">
             @csrf
             <div class="container-email">
-                <input id="name" type="text" style="text-align:center;" placeholder="Identifiant" name="name">
+                <input id="email" type="text" style="text-align:center;" placeholder="Identifiant" name="email">
             </div>
             <div class="container-pwd">
                 <input id="password" type="password" style="text-align:center;" placeholder="Mot de passe" name="pwd">
@@ -37,7 +37,7 @@
                 <a href="" style="text-decoration:none; color:#FFFFFF;">Mot de passe oublié ?</a>
             </div>
             <div class="register">
-                <a href="" style="text-decoration:none; color:#FFFFFF;">S'enregistrer</a>
+                <a href="register" style="text-decoration:none; color:#FFFFFF;">S'enregistrer</a>
             </div>
         </div>
     </div>

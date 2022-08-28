@@ -33,6 +33,10 @@ Route::get('/list/show', function () {
     return view('list/show');
 });
 
+Route::get('/home/index', function () {
+    return view('home/index');
+});
+
 /**
  * Route POST
  * Fait appel à la methode login dans le controller Auth
