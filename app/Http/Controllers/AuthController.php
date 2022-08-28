@@ -75,6 +75,7 @@ class AuthController extends BaseController
                 session_start();
                 $_SESSION['loggedin'] = true;
                 $_SESSION['user_id'] = $aUser->usr_id;
+                $_SESSION['role_id'] = $aUser->role_id;
                 // On renvoie sur la page des relevés
                 return redirect('list');
             } else {

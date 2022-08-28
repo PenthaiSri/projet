@@ -1,0 +1,46 @@
+.remove-modal {
+    background-color: rgba(255, 255, 255, 0.8);
+    border : 4px ridge rgb(93, 108, 177);
+    border-radius: 10px;
+    width: 50%;
+    margin-top: 15%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.header-modal {
+    margin-left: 15px;
+}
+
+.body-modal {
+    padding-left: 15px;
+}
+
+.buttons {
+    text-align: right;
+}
+
+.button-no {
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    margin: 2px;
+    padding: 5px 20px;
+    border-radius: 2px;
+    background-color: rgb(216, 97, 97);
+}
+
+.button-yes {
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    margin: 2px;
+    padding: 5px 20px;
+    border-radius: 2px;
+    background-color: rgb(81, 81, 221);
+    cursor: pointer;
+}

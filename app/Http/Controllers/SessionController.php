@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
@@ -35,11 +36,28 @@ class SessionController extends BaseController
      * 
      * @return  boolean
      */
-    public function isAuthorized()
+    public static function adminOnly()
     {
         /**
          * Si l'utilisateur ne possède pas les droits
          * On renvoi sur une page d'erreur 403
          */
+        if (!isset($_SESSION['loggedin'])) {
+            return redirect('login');
+        } else {
+            // Charge les classes nécessaires
+            $oUserModel = new User();
+            // Récupère l'id de l'utilisateur connecté
+            $iUserId = $_SESSION['user_id'];
+            // Récupère le rôle de l'utilisateur
+            $aUserList = $oUserModel->getById($iUserId);
+            $aUser = $aUserList[0];
+            if ($aUser->role_id != User::ADMIN) {
+                return back();
+            }
+        }
+        if (!isset($_SESSION['role_id'])) {
+            $_SESSION['role_id'] = $aUser->role_id;
+        }
     }
 }
