@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<?php
+use \App\Http\Controllers\SessionController;
+echo SessionController::checkIfConnected();
+echo SessionController::adminOnly();
+?>
+
 <html>
 
 <head>
@@ -6,6 +12,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('css/create.css')}}" rel="stylesheet" type="text/css">
+    <style>
+    body {
+        background-image: url('/projet/resources/images/background.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    </style>
 </head>
 <header>
     <div id="nav" class="navbar">
@@ -26,7 +40,7 @@
             <p style="color: white;">Création d'un module</p>
         </strong>
         <a href="../list"><button type="submit" id="module-cancel" class="cancel-button">Annuler la création</button></a>
-        <button id="user-gest" class="user-create-button">Création d'un utilisateur</button>
+        <a href="../admin/create"><button id="user-gest" class="user-create-button">Création d'un utilisateur</button></a>
         <hr>
         <div class="module-create">
             <form method="POST" action="createModule">
