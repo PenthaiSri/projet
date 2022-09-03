@@ -1,0 +1,55 @@
+body {background-color: rgb(91, 128, 79);
+
+}
+
+.resume-up{
+    
+    margin-top: 10%;
+    border-radius: 15px;
+    border : 4px ridge green;
+    background-color: rgba(64, 64, 64, 0.7);
+    padding: .5rem ;
+}
+
+.resume-up img {
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+.resume-up h1{
+    float: right;
+    width: 500px;
+}
+
+.resume-down{
+    width: 100%
+}
+
+.log-modules{
+    float: left;
+    margin: 0 auto;
+    margin-top: 10%;
+    height: 70%;
+    border-radius: 15px;
+    border : 4px ridge green;
+    background-color: rgba(64, 64, 64, 0.7);
+    padding: .5rem ;
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+}
+
+.meteo{
+    float: right;
+    margin: 0 auto;
+    margin-top: 10%;
+    height: 70%;
+    border-radius: 15px;
+    border : 4px ridge green;
+    background-color: rgba(64, 64, 64, 0.7);
+    padding: .5rem ;
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+}
