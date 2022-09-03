@@ -2,8 +2,6 @@
 <?php
 
 use \App\Http\Controllers\SessionController;
-use \App\Http\Controllers\ModuleController;
-use App\Models\User;
 use App\Models\Module;
 
 echo SessionController::checkIfConnected();
@@ -37,7 +35,7 @@ $aModule = $aModuleList[0];
             <ul>
                 <li><a href="../home">Accueil</a></li>
                 <li><a href="../list">Relevés</a></li>
-                <li><a href="#meteo">Météo</a></li>
+                <li><a href="../weather">Météo</a></li>
                 <li><a href="../admin/create">Administration</a></li>
             </ul>
         </div>
@@ -60,13 +58,7 @@ $aModule = $aModuleList[0];
                 <hr>
                 <div class="set-humidity">
                     <h2>Humidité du sol</h2>
-                    <h3>Taux optimal : <input id="ground-humidity" class="percentage" value="<?php echo($aModule->mde_ground_humidity)?>" name="gr-humidity" required="true"> % </h3>
                     <h3>Taux tolérés : Entre <input id="min-humidity" class="percentage" value="<?php echo($aModule->mde_min_soil)?>" name="min-humidity" required="true"> % et <input id="max-humidity" class="percentage" value="<?php echo($aModule->mde_max_soil)?>"name="max-humidity" required="true"> % </h3>
-                    <hr>
-                </div>
-                <div class="set-air-details">
-                    <h2>Air ambiant</h2>
-                    <h3>Humidités tolérées : Entre <input id="min-air-water" class="percentage" value="<?php echo($aModule->mde_min_air)?>" name="min-air"> % et <input id="max-air-water" class="percentage" value="<?php echo($aModule->mde_max_air)?>" name="max-air"> % </h3>
                     <hr>
                 </div>
                 <button id="edit-module" class="register-button" type="submit">Enregistrer</button>

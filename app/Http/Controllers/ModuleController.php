@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Module;
-use Egulias\EmailValidator\Result\Reason\EmptyReason;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 
@@ -20,14 +18,13 @@ class ModuleController extends BaseController {
      * 
      * @return  bool Retourne true s'il n'y a pas d'erreurs, sinon false
      */
-    public function showModule()
+    public static function showModule()
     {
         // Charge les classes nécessaires
         $oModuleModel = new Module();
 
         // Récupère les données enregistrées en BDD
-        $iModuleId = null;
-        $aModuleList = $oModuleModel->getById($iModuleId);
+        $iModuleId = $_SESSION['mde_id'];
     }
 
     /**
@@ -61,10 +58,6 @@ class ModuleController extends BaseController {
         } else {
             $sDesc = '';
         }
-        // Si le champ humidité du sol n'est pas vide
-        if (!empty($_POST['gr-humidity'])) {
-            $fGroundHum = $_POST['gr-humidity'];
-        }
         // Si le champ humidité min du sol n'est pas vide
         if (!empty($_POST['min-humidity'])) {
             $fMinHum = $_POST['min-humidity'];
@@ -73,28 +66,13 @@ class ModuleController extends BaseController {
         if (!empty($_POST['max-humidity'])) {
             $fMaxHum = $_POST['max-humidity'];
         }
-        // Si le champ humidité min de l'air n'est pas vide
-        if (!empty($_POST['min-air'])) {
-            $fMinAir = $_POST['min-air'];
-        } else {
-            $fMinAir = null;
-        }
-        // Si le champ humidité min de l'air n'est pas vide
-        if (!empty($_POST['max-air'])) {
-            $fMaxAir = $_POST['max-air'];
-        } else {
-            $fMaxAir = null;
-        }
         // Prépare l'enregistrement en base de données
         $bRequest = $oModuleModel->create(
             $sModName,
             $sLocate,
             $sDesc,
-            $fGroundHum,
             $fMinHum,
             $fMaxHum,
-            $fMinAir,
-            $fMaxAir
         );
         // Si erreurs, annule la transaction et renvoie un message d'erreur
         if ($bRequest === false) {
@@ -153,14 +131,11 @@ class ModuleController extends BaseController {
         $oModuleModel = new Module();
 
         // Récupère les données du formulaire
-        if (!empty($_POST['name']) && !empty($_POST['gr-humidity'])
-        && !empty($_POST['min-humidity']) && !empty($_POST['max-humidity'])) {
+        if (!empty($_POST['name']) && !empty($_POST['min-humidity']) && !empty($_POST['max-humidity'])) {
             $sName = $_POST['name'];
-            $fGroundHum = $_POST['gr-humidity'];
             $fMinHum = $_POST['min-humidity'];
             $fMaxHum = $_POST['max-humidity'];
         }
-
         if (!empty($_POST['locate'])) {
             $sLocate = $_POST['locate'];
         } else { $sLocate = null; }
@@ -169,25 +144,14 @@ class ModuleController extends BaseController {
             $sDesc = $_POST['description'];
         } else { $sDesc = null; }
 
-        if (!empty($_POST['min-air'])) {
-            $fMinAir = $_POST['min-air'];
-        } else { $fMinAir = null; }
-
-        if (!empty($_POST['max-air'])) {
-            $fMaxAir = $_POST['max-air'];
-        } else { $fMaxAir = null; }
-
         // Prépare la requête SQL
         $bRequest = $oModuleModel->modify(
             $iId,
             $sName,
             $sLocate,
             $sDesc,
-            $fGroundHum,
             $fMinHum,
-            $fMaxHum,
-            $fMinAir,
-            $fMaxAir
+            $fMaxHum
         );
         if ($bRequest === false) {
             DB::rollBack();

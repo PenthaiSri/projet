@@ -2,7 +2,6 @@
 <?php
 
 use \App\Http\Controllers\SessionController;
-use App\Models\User;
 use App\Models\Module;
 
 echo SessionController::checkIfConnected();
@@ -18,7 +17,7 @@ $aModule = $aModuleList[0];
 <html>
 
 <head>
-    <title>Liste des modules</title>
+    <title>Suppression du module</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('css/list.css')}}" rel="stylesheet" type="text/css">

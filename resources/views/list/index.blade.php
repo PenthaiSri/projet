@@ -68,7 +68,7 @@ $aModuleList = $oModuleModel->getAll();
                         <td><?php echo ($aModule->plant_name); ?></td>
                         <td><?php echo ($aModule->ste_name); ?></td>
                         <td>
-                            <a class="show-button" href="?id=<?php echo($aModule->mde_id) ?>">Détails</a>
+                            <a class="show-button" href="list/show?id=<?php echo($aModule->mde_id) ?>">Détails</a>
                             <?php if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == User::ADMIN) { ?>
                                 <a class="edit-button" href="list/edit?id=<?php echo($aModule->mde_id) ?>">Modifier</a>
                                 <a class="delete-button" href="list/remove?id=<?php echo($aModule->mde_id) ?>">Supprimer</a>

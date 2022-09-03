@@ -20,11 +20,8 @@ class Module
      * @param   $sName          String  Required        Nom donné au module
      * @param   $sLocate        String  Not Required    Emplacement du module
      * @param   $sDesc          String  Not Required    Description du module
-     * @param   $fGroundHum     Float   Required        Taux optimale d'humidité dans le sol
      * @param   $fMinHum        Float   Required        Taux minimum d'humidité dans le sol
      * @param   $fMaxHum        Float   Required        Taux maximum d'humidité dans le sol
-     * @param   $fMinAir        Float   Not Required    Humidité minimum de l'air
-     * @param   $fMaxAir        Float   Not Required    Humidité maximum de l'air
      * 
      * @return  bool Retourne true s'il n'y a pas d'erreurs, sinon false
      */
@@ -32,21 +29,15 @@ class Module
         $sName,
         $sLocate,
         $sDesc,
-        $fGroundHum,
         $fMinHum,
         $fMaxHum,
-        $fMinAir,
-        $fMaxAir
     ) {
         $bRequest = DB::table('t_modules')->insert([
             'plant_name' => $sName,
             'mde_locate' => $sLocate,
             'mde_description' => $sDesc,
-            'mde_ground_humidity' => $fGroundHum,
             'mde_min_soil' => $fMinHum,
             'mde_max_soil' => $fMaxHum,
-            'mde_min_air' => $fMinAir,
-            'mde_max_air' => $fMaxAir,
             'log_created_at' => Carbon::now()->timezone('Europe/Paris')
         ]);
         return $bRequest;
@@ -80,11 +71,8 @@ class Module
      * @param   $sName          String  Required        Nom donné au module
      * @param   $sLocate        String  Not Required    Emplacement du module
      * @param   $sDesc          String  Not Required    Description du module
-     * @param   $fGroundHum     Float   Required        Taux optimale d'humidité dans le sol
      * @param   $fMinHum        Float   Required        Taux minimum d'humidité dans le sol
      * @param   $fMaxHum        Float   Required        Taux maximum d'humidité dans le sol
-     * @param   $fMinAir        Float   Not Required    Humidité minimum de l'air
-     * @param   $fMaxAir        Float   Not Required    Humidité maximum de l'air
      * 
      * @return  bool Retourne true s'il n'y a pas d'erreurs, sinon false
      */
@@ -93,21 +81,15 @@ class Module
         $sName,
         $sLocate,
         $sDesc,
-        $fGroundHum,
         $fMinHum,
         $fMaxHum,
-        $fMinAir,
-        $fMaxAir
     ) {
         $sRequest = DB::table('t_modules')->where('mde_id', '=', $iId)->update([
             'plant_name' => $sName,
             'mde_locate' => $sLocate,
             'mde_description' => $sDesc,
-            'mde_ground_humidity' => $fGroundHum,
             'mde_min_soil' => $fMinHum,
-            'mde_max_soil' => $fMaxHum,
-            'mde_min_air' => $fMinAir,
-            'mde_max_air' => $fMaxAir
+            'mde_max_soil' => $fMaxHum
         ]);
         return $sRequest;
     }

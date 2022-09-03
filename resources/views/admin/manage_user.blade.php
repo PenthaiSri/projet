@@ -14,7 +14,7 @@ $aUserList = $aUserModel->getAll();
 <html>
 
 <head>
-    <title>Création d'un utilisateur</title>
+    <title>Gestion des utilisateurs</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('css/admin.css')}}" rel="stylesheet" type="text/css">
@@ -93,8 +93,8 @@ $aUserList = $aUserModel->getAll();
                     <input id="firstname" class="textfield" type="text" placeholder="Prénom de l'utilisateur" name="firstname" required="true">
                 </div>
                 <div class="user-coord">
-                    <input id="email" class="textfield" type="text" placeholder="Email de l'utilisateur" name="email" required="true">
-                    <input id="phone" class="textfield" type="text" placeholder="Numéro de téléphone" name="phone" required="true">
+                    <input id="email" class="textfield" type="email" placeholder="Email de l'utilisateur" name="email" required="true">
+                    <input id="phone" class="textfield" type="tel" placeholder="Numéro de téléphone" name="phone" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required="true">
                 </div>
                 <div class="select-option">
                     <div class="col-1">

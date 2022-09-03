@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <?php
-    use \App\Http\Controllers\SessionController;
-    use App\Models\Module;
+
+use \App\Http\Controllers\SessionController;
+use App\Models\Module;
+use Carbon\Carbon;
     
-    echo SessionController::checkIfConnected();
-    
-    // Charge les classes nécessaires
-    // Récupère tous les modules enregistrés
+echo SessionController::checkIfConnected();
+
+$iId = $_GET['id'];
+$_SESSION['mde_id'] = $iId;
+$oModuleModel = new Module();
+$aModuleList = $oModuleModel->getById($iId);
+$aModule = $aModuleList[0];
 ?>
 <head>
-    <title>Détail du module</title>
+    <title>Détails du module</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('css/show.css')}}" rel="stylesheet" type="text/css">
@@ -29,8 +34,8 @@
             <ul>
                 <li><a href="../home">Accueil</a></li>
                 <li><a href="../list">Relevés</a></li>
-                <li><a href="#meteo">Météo</a></li>
-                <li><a href="list/create">Administration</a></li>
+                <li><a href="../weather">Météo</a></li>
+                <li><a href="../list/create">Administration</a></li>
             </ul>
         </div>
     </div>
@@ -39,7 +44,7 @@
 <body>
     <div class="panel">
         <div class="title">
-            <h1>Nom de la plante</h1>
+            <h1><?php echo($aModule->plant_name)?></h1>
         </div>
         <hr>
         <div class="air-info">
@@ -60,19 +65,18 @@
         <hr style="clear: both;">
         <div class="settings">
             <div class="logs">
-                <h4 style="margin-left: 1%;">Date de mise en service : </h4>
-                <h4 style="color: aqua; margin-left: 1%;">Voir les dernières activités</h4>
+                <h4 style="margin-left: 1%;">Date de mise en service : <?php echo(Carbon::parse($aModule->log_created_at)->format('d/m/Y à H:i'))?></h4>
+                <!-- <h4 style="color: aqua; margin-left: 1%;">Voir les dernières activités</h4> -->
             </div>
             <div class="ground-settings">
-                <h3>Humidité du sol max : </h3>
-                <h3>Humidité du sol min : </h3>
+                <h3>Humidité du sol max : <?php echo($aModule->mde_max_soil)?> %</h3>
+                <h3>Humidité du sol min : <?php echo($aModule->mde_min_soil)?> %</h3>
             </div>
         </div>
         <hr style="clear: both;">
         <div class="description">
-            <h3>Description : </h3>
+            <h3>Description : <?php echo($aModule->mde_description)?></h3>
         </div>
     </div>
 </body>
-
 </html>

@@ -1,0 +1,29 @@
+.report-container {
+    color: white;
+    border: 2px solid rgb(169, 204, 45);
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 10%;
+    float: left;
+    background-color: rgba(70, 70, 70, 0.7);
+    border-radius: 15px;
+    width: 30%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.outside {
+    float: right;
+    width: 40%;
+}
+
+.weather-forecast {
+    float: left;
+    width: 40%;
+}
+
+.temperature {
+    margin-bottom: 2%;
+    height: 30px;
+    float: left;
+    width: 70%;
+}

@@ -51,8 +51,8 @@ $aUser = $aUserList[0];
                     <input id="firstname" class="textfield" type="text" placeholder="Prénom de l'utilisateur" value="<?php echo($aUser->usr_firstname)?>" name="firstname" required="true">
                 </div>
                 <div class="user-coord">
-                    <input id="email" class="textfield" type="text" placeholder="Email de l'utilisateur" value="<?php echo($aUser->usr_email)?>" name="email" required="true">
-                    <input id="phone" class="textfield" type="text" placeholder="Numéro de téléphone" value="<?php echo($aUser->usr_phone)?>" name="phone" required="true">
+                    <input id="email" class="textfield" type="email" placeholder="Email de l'utilisateur" value="<?php echo($aUser->usr_email)?>" name="email" required="true">
+                    <input id="phone" class="textfield" type="tel" placeholder="Numéro de téléphone" value="<?php echo($aUser->usr_phone)?>" name="phone" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required="true">
                 </div>
                 <div class="select-option">
                     <div class="col-1">
