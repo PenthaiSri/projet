@@ -51,7 +51,7 @@ class User {
      * 
      * @param   $sEmail         Email de l'utilisateur
      * 
-     * @return  boolean
+     * @return  array
      */
     public function getByEmail($sEmail)
     {
@@ -79,7 +79,6 @@ class User {
             'usr_lastname' => $sLastname,
             'usr_email' => $sEmail,
             'usr_password' => $sPassword,
-            'log_created_at' => Carbon::now()->timezone('Europe/Paris')
         ]);
         return $bRequest;
     }
@@ -110,7 +109,6 @@ class User {
             'usr_email' => $sEmail,
             'usr_phone' => $iPhone,
             'usr_password' => $sPassword,
-            'log_created_at' => Carbon::now()->timezone('Europe/Paris')
         ]);
         return $bRequest;
     }
@@ -123,7 +121,7 @@ class User {
      * 
      * @param   $iId            Id de l'utilisateur
      * 
-     * @return  boolean
+     * @return  array|boolean
      */
     public function getById($iId)
     {

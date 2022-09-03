@@ -23,8 +23,6 @@ class Module
      * @param   $fGroundHum     Float   Required        Taux optimale d'humidité dans le sol
      * @param   $fMinHum        Float   Required        Taux minimum d'humidité dans le sol
      * @param   $fMaxHum        Float   Required        Taux maximum d'humidité dans le sol
-     * @param   $fMinTemp       Float   Not Required    Température minimum de l'air
-     * @param   $fMaxTemp       Float   Not Required    Température maximum de l'air
      * @param   $fMinAir        Float   Not Required    Humidité minimum de l'air
      * @param   $fMaxAir        Float   Not Required    Humidité maximum de l'air
      * 
@@ -37,8 +35,6 @@ class Module
         $fGroundHum,
         $fMinHum,
         $fMaxHum,
-        $fMinTemp,
-        $fMaxTemp,
         $fMinAir,
         $fMaxAir
     ) {
@@ -49,8 +45,6 @@ class Module
             'mde_ground_humidity' => $fGroundHum,
             'mde_min_soil' => $fMinHum,
             'mde_max_soil' => $fMaxHum,
-            'mde_min_temp' => $fMinTemp,
-            'mde_max_temp' => $fMaxTemp,
             'mde_min_air' => $fMinAir,
             'mde_max_air' => $fMaxAir,
             'log_created_at' => Carbon::now()->timezone('Europe/Paris')
@@ -89,8 +83,6 @@ class Module
      * @param   $fGroundHum     Float   Required        Taux optimale d'humidité dans le sol
      * @param   $fMinHum        Float   Required        Taux minimum d'humidité dans le sol
      * @param   $fMaxHum        Float   Required        Taux maximum d'humidité dans le sol
-     * @param   $fMinTemp       Float   Not Required    Température minimum de l'air
-     * @param   $fMaxTemp       Float   Not Required    Température maximum de l'air
      * @param   $fMinAir        Float   Not Required    Humidité minimum de l'air
      * @param   $fMaxAir        Float   Not Required    Humidité maximum de l'air
      * 
@@ -104,8 +96,6 @@ class Module
         $fGroundHum,
         $fMinHum,
         $fMaxHum,
-        $fMinTemp,
-        $fMaxTemp,
         $fMinAir,
         $fMaxAir
     ) {
@@ -116,8 +106,6 @@ class Module
             'mde_ground_humidity' => $fGroundHum,
             'mde_min_soil' => $fMinHum,
             'mde_max_soil' => $fMaxHum,
-            'mde_min_temp' => $fMinTemp,
-            'mde_max_temp' => $fMaxTemp,
             'mde_min_air' => $fMinAir,
             'mde_max_air' => $fMaxAir
         ]);

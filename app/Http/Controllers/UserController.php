@@ -22,6 +22,11 @@ class UserController extends BaseController
     {
         // charge les classes nécessaires
         $oUserModel = new User();
+        $aEmailExist = $oUserModel->getByEmail($_POST['email']);
+        if (isset($aEmailExist[0])) {
+            return redirect('admin/create')->with('error-create', 'Cet email est déjà utilisé !');
+            unset($_POST);
+        }
         // Récupère les données envoyées en POST
         if (isset($_POST['lastname']) && isset($_POST['firstname']) && isset($_POST['email']) && isset($_POST['phone'])) {
             $sLastname = $_POST['lastname'];
@@ -33,7 +38,7 @@ class UserController extends BaseController
             // On défini un mot de passe par défaut
             $sPassword = password_hash('password', PASSWORD_DEFAULT);
         } else {
-            return redirect('admin/create');
+            return redirect('admin/create')->with('error-create', 'Veuillez renseigner tous les champs !');
             unset($_POST);
         }
         // On prépare la requête SQL
@@ -49,10 +54,10 @@ class UserController extends BaseController
         if ($bRequest === false) {
             DB::rollBack();
             unset($_POST);
-            return redirect('admin/create');
+            return redirect('admin/create')->with('error-create', 'Erreur lors de la création du compte !');
         }
         unset($_POST);
-        return redirect('admin/create');
+        return redirect('admin/create')->with('success-create', 'Le compte à bien été crée !');
     }
 
     /**
