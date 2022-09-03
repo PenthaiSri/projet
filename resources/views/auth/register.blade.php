@@ -28,7 +28,7 @@
                 <input id="lastname" type="text" style="height: 200%; width: 50%;" placeholder="Votre nom" name="lastname" required="true">
             </div>
             <div class="container-email">
-                <input id="email" type="text" style="height: 200%; width: 50%;" placeholder="Votre identifiant" name="email" required="true">
+                <input id="email" type="email" style="height: 200%; width: 50%;" placeholder="Votre identifiant" name="email" required="true">
             </div>
             <div class="container-pwd">
                 <input id="password" type="password" style="height: 200%; width: 50%;" placeholder="Votre mot de passe" name="pwd" required="true">
