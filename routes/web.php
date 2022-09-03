@@ -40,6 +40,8 @@ Route::view('/list/create', 'list/create');
 
 Route::view('/admin/create', 'admin/manage_user');
 
+Route::view('/home', 'home/index');
+
 Route::get('/list/edit', function () {
     return view('list/edit');
 });
