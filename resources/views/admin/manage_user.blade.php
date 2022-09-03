@@ -18,6 +18,7 @@ $aUserList = $aUserModel->getAll();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('css/admin.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url('css/messages.css')}}" rel="stylesheet" type="text/css">
     <style>
         body {
             background-image: url('/projet/resources/images/background.jpg');
@@ -31,20 +32,27 @@ $aUserList = $aUserModel->getAll();
     <div id="nav" class="navbar">
         <div class="centered-nav">
             <ul>
-                <li><a href="../home">Acceuil</a></li>
+                <li><a href="../home">Accueil</a></li>
                 <li><a href="../list">Relevés</a></li>
-                <li><a href="#meteo">Météo</a></li>
+                <li><a href="../weather">Météo</a></li>
             </ul>
         </div>
     </div>
 </header>
 
 <body>
-    <div class="admin-panel">
+    <div class="admin-panel" style="height: 600px;">
         <h1>Administration</h1>
         <strong>
             <p style="color: white;">Gestion des utilisateurs</p>
         </strong>
+        <!-- Gère les messages d'erreurs -->
+        @if(session('success-create'))
+            <div class="alert-success">{{session('success-create')}}</div>
+        @endif
+        @if(session('error-create'))
+            <div class="alert-error">{{session('error-create')}}</div>
+        @endif
         <a href="../list"><button type="submit" id="user-cancel" class="cancel-button">Annuler la création</button></a>
         <a href="../list/create"><button id="user-gest" class="module-create-button">Création d'un module</button></a>
         <hr>
@@ -67,7 +75,9 @@ $aUserList = $aUserModel->getAll();
                             <td><?php echo ($aUser->role_name) ?></td>
                             <td>
                                 <a class="edit-button" href="editUser?id=<?php echo($aUser->usr_id)?>">Modifier</a>
+                                <?php if($_SESSION['user_id'] != $aUser->usr_id) { ?>
                                 <a class="delete-button" href="removeUser?id=<?php echo($aUser->usr_id)?>">Supprimer</a>
+                                <?php } ?>
                             <td>
                         </tr>
                     <?php } ?>

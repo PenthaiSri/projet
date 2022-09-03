@@ -13,15 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * Route de test unitaire
+ */
+// Route::get('/login', function () {
+//     return 'coucou';
+// });
+
+// Route::get('/list', function () {
+//     return 'coucou';
+// });
+
+// Route::get('/admin/create', function () {
+//     return 'coucou';
+// });
+
+Route::view('/weather', 'weather/index');
+
 Route::view('/login', 'auth/login');
 
-Route::get('/login', function () {
-    return view('/auth/login');
-});
-
-Route::get('/register', function () {
-    return view('/auth/register');
-});
+Route::view('/register', 'auth/register');
 
 Route::view('/list', 'list/index');
 

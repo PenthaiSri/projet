@@ -24,6 +24,7 @@ $aUser = $aUserList[0];
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('css/admin.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url('css/messages.css')}}" rel="stylesheet" type="text/css">
     <style>
         body {
             background-image: url('/projet/resources/images/background.jpg');
@@ -39,6 +40,9 @@ $aUser = $aUserList[0];
         <a href="../admin/create"><button type="submit" id="user-cancel" class="cancel-button">Annuler la modification</button></a>
         <hr>
         <div class="user-edit">
+        @if(session('error-create'))
+            <div class="alert-error">{{session('error-create')}}</div>
+        @endif
             <h3>Modification de <?php echo($aUser->usr_firstname)?> <?php echo($aUser->usr_lastname)?></h3>
             <form method="POST" action="editUser">
                 @csrf

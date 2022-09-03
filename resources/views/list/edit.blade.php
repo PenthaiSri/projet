@@ -35,7 +35,7 @@ $aModule = $aModuleList[0];
     <div id="nav" class="navbar">
         <div class="centered-nav">
             <ul>
-                <li><a href="../home">Acceuil</a></li>
+                <li><a href="../home">Accueil</a></li>
                 <li><a href="../list">Relevés</a></li>
                 <li><a href="#meteo">Météo</a></li>
                 <li><a href="../admin/create">Administration</a></li>
@@ -66,7 +66,6 @@ $aModule = $aModuleList[0];
                 </div>
                 <div class="set-air-details">
                     <h2>Air ambiant</h2>
-                    <h3>Températures tolérées : Entre <input id="min-temp" class="percentage" value="<?php echo($aModule->mde_min_temp)?> "name="min-temp"> % et <input id="max-temp" class="percentage" value="<?php echo($aModule->mde_max_temp)?>" name="max-temp"> % </h3>
                     <h3>Humidités tolérées : Entre <input id="min-air-water" class="percentage" value="<?php echo($aModule->mde_min_air)?>" name="min-air"> % et <input id="max-air-water" class="percentage" value="<?php echo($aModule->mde_max_air)?>" name="max-air"> % </h3>
                     <hr>
                 </div>
