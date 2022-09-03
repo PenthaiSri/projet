@@ -37,6 +37,7 @@ $aModule = $aModuleList[0];
                 <li><a href="../list">Relevés</a></li>
                 <li><a href="../weather">Météo</a></li>
                 <li><a href="../admin/create">Administration</a></li>
+                <li><a href="../logout" id="logout-button">Déconnexion</a></li>
             </ul>
         </div>
     </div>

@@ -35,6 +35,7 @@ $aUserList = $aUserModel->getAll();
                 <li><a href="../home">Accueil</a></li>
                 <li><a href="../list">Relevés</a></li>
                 <li><a href="../weather">Météo</a></li>
+                <li><a href="../logout" id="logout-button">Déconnexion</a></li>
             </ul>
         </div>
     </div>
