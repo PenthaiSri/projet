@@ -4,6 +4,7 @@
 <head>
     <title>Register page</title>
     <link rel="stylesheet" type="text/css" href="{{url('css/login.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('css/messages.css')}}">
 </head>
 
 <body>
@@ -11,6 +12,12 @@
 
     <div class="auth">
         <h1>Création de compte</h1>
+        @if(session('same_mail'))
+            <div class="alert-error">{{session('same_mail')}}</div>
+        @endif
+        @if(session('required'))
+            <div class="alert-error">{{session('required')}}</div>
+        @endif
         <!-- Div pour entrer les info et valider -->
         <form method="POST" action="signin">
             @csrf

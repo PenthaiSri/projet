@@ -24,6 +24,10 @@ class ModuleController extends BaseController {
     {
         // Charge les classes nécessaires
         $oModuleModel = new Module();
+
+        // Récupère les données enregistrées en BDD
+        $iModuleId = null;
+        $aModuleList = $oModuleModel->getById($iModuleId);
     }
 
     /**
@@ -69,18 +73,6 @@ class ModuleController extends BaseController {
         if (!empty($_POST['max-humidity'])) {
             $fMaxHum = $_POST['max-humidity'];
         }
-        // Si le champ température min n'est pas vide
-        if (!empty($_POST['min-temp'])) {
-            $fMinTemp = $_POST['min-temp'];
-        } else {
-            $fMinTemp = null;
-        }
-        // Si le champ température max n'est pas vide
-        if (!empty($_POST['max-temp'])) {
-            $fMaxTemp = $_POST['max-temp'];
-        } else {
-            $fMaxTemp = null;
-        }
         // Si le champ humidité min de l'air n'est pas vide
         if (!empty($_POST['min-air'])) {
             $fMinAir = $_POST['min-air'];
@@ -101,8 +93,6 @@ class ModuleController extends BaseController {
             $fGroundHum,
             $fMinHum,
             $fMaxHum,
-            $fMinTemp,
-            $fMaxTemp,
             $fMinAir,
             $fMaxAir
         );
@@ -179,18 +169,6 @@ class ModuleController extends BaseController {
             $sDesc = $_POST['description'];
         } else { $sDesc = null; }
 
-        if (!empty($_POST['min-temp'])) {
-            $fMinTemp = $_POST['min-temp'];
-        } else { $fMinTemp = null; }
-
-        if (!empty($_POST['max-temp'])) {
-            $fMaxTemp = $_POST['max-temp'];
-        } else { $fMaxTemp = null; }
-
-        if (!empty($_POST['min-temp'])) {
-            $fMinTemp = $_POST['min-temp'];
-        } else { $fMinTemp = null; }
-
         if (!empty($_POST['min-air'])) {
             $fMinAir = $_POST['min-air'];
         } else { $fMinAir = null; }
@@ -208,8 +186,6 @@ class ModuleController extends BaseController {
             $fGroundHum,
             $fMinHum,
             $fMaxHum,
-            $fMinTemp,
-            $fMaxTemp,
             $fMinAir,
             $fMaxAir
         );

@@ -35,9 +35,9 @@ $aModuleList = $oModuleModel->getAll();
     <div id="nav" class="navbar">
         <div class="centered-nav">
             <ul>
-                <li><a href="home">Acceuil</a></li>
+                <li><a href="home">Accueil</a></li>
                 <li><a href="list">Relevés</a></li>
-                <li><a href="#meteo">Météo</a></li>
+                <li><a href="weather">Météo</a></li>
                 <?php if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == User::ADMIN) { ?>
                     <li><a href="list/create">Administration</a></li>
                 <?php } ?>

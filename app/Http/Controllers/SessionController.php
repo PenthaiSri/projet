@@ -23,7 +23,7 @@ class SessionController extends BaseController
         // Si l'id de session est vide, on renvoi sur le page de connexion
         session_start();
         if (!isset($_SESSION['loggedin'])) {
-            return redirect('login');
+            return redirect('login')->with('not_logged_in', 'Vous devez d\'abord vous connecter !');
         }
     }
 
@@ -53,7 +53,7 @@ class SessionController extends BaseController
             $aUserList = $oUserModel->getById($iUserId);
             $aUser = $aUserList[0];
             if ($aUser->role_id != User::ADMIN) {
-                return back();
+                return back()->with('not_authorized', 'Vous n\'avez pas les droits suffisants');
             }
         }
         if (!isset($_SESSION['role_id'])) {

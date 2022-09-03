@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Login page</title>
     <link rel="stylesheet" type="text/css" href="{{url('css/login.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url('css/messages.css')}}">
     <style>
     body {
         background-image: url('/projet/resources/images/background.jpg');
@@ -13,10 +13,20 @@
     }
     </style>
 </head>
-
 <body>
     <div class="auth">
         <h1>Authentification</h1>
+        <!-- Gère les messages d'erreurs -->
+        @if(session('message'))
+            <div class="alert-error">{{session('message')}}</div>
+        @endif
+        @if(session('not_logged_in'))
+            <div class="alert-error">{{session('not_logged_in')}}</div>
+        @endif
+        @if(session('success'))
+            <div class="alert-success">{{session('success')}}</div>
+        @endif
+        <!-- Fin des messages -->
         <!-- Div pour entrer les info et valider -->
         <form method="POST" action="connect">
             @csrf
