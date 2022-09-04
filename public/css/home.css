@@ -3,23 +3,36 @@ body {background-color: rgb(91, 128, 79);
 }
 
 .resume-up{
-    
     margin-top: 10%;
     border-radius: 15px;
     border : 4px ridge green;
     background-color: rgba(64, 64, 64, 0.7);
     padding: .5rem ;
+    display:flex;
 }
 
 .resume-up img {
     float: left;
-    width: 100px;
-    height: 100px;
 }
 
-.resume-up h1{
-    float: right;
+.resume-in{
+    display:flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resume-in h1{
+    height: 50%;
     width: 500px;
+}
+
+.resume-in button{
+    height: 50px;
+    width: 200px;
+    background-color: rgb(64, 160, 32);
+    border-radius: 10px;
+    border : 4px ridge white;
 }
 
 .resume-down{
@@ -27,12 +40,13 @@ body {background-color: rgb(91, 128, 79);
 }
 
 .log-modules{
+    width:40%;
     float: left;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 5%;
     height: 70%;
-    border-radius: 15px;
-    border : 4px ridge green;
+    border-radius: 5px;
+    border : 2px ridge rgb(96, 96, 96);
     background-color: rgba(64, 64, 64, 0.7);
     padding: .5rem ;
     display: flex;
@@ -40,13 +54,28 @@ body {background-color: rgb(91, 128, 79);
     text-align: center;
 }
 
+.txt-log {
+    background-color: rgba(96, 96, 96, 0.7);
+    padding: .5rem ;
+    display: flex;
+    flex-direction: column; 
+}
+
+.txt-log p {
+    height: 100%;
+    color:white;
+    vertical-align:top;
+    text-align:left;
+}
+
 .meteo{
+    width:40%;
     float: right;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 5%;
     height: 70%;
-    border-radius: 15px;
-    border : 4px ridge green;
+    border-radius: 5px;
+    border : 2px ridge rgb(96, 96, 96);
     background-color: rgba(64, 64, 64, 0.7);
     padding: .5rem ;
     display: flex;
