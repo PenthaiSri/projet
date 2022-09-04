@@ -13,6 +13,22 @@ $_SESSION['mde_id'] = $iId;
 $oModuleModel = new Module();
 $aModuleList = $oModuleModel->getById($iId);
 $aModule = $aModuleList[0];
+
+$aTemperatureList = $oModuleModel->getTemperatureByModId($iId);
+if (isset($aTemperatureList[0])) {
+    $aTemp = $aTemperatureList[0];
+} else { $aTemperatureList[0] = null;}
+
+$aHygroList = $oModuleModel->getHygroByModId($iId);
+if (isset($aHygroList[0])) {
+   $aHygro = $aHygroList[0]; 
+} else { $aHygroList[0] = null;}
+
+$aSolList = $oModuleModel->getSolByModId($iId);
+if (isset($aHygroList[0])) {
+    $aSol = $aSolList[0];
+} else { $aSolList[0] = null;}
+
 ?>
 <head>
     <title>Détails du module</title>
@@ -51,15 +67,18 @@ $aModule = $aModuleList[0];
             <h2>Air ambiant</h2>
             <div class="hygrometrie">
                 <h3>Hygrométrie</h3>
+                <h2><?php if ($aHygroList[0] != null) {echo($aHygro->rdg_value);}?> %</h2>
             </div>
             <div class="temperature">
                 <h3>Température</h3>
+                <h2><?php if ($aTemperatureList[0] != null) {echo($aTemp->rdg_value);} ?> °C<h2>
             </div>
         </div>
         <div class="ground-info">
             <h2>Humidité du sol</h2>
             <div class="soil-hum">
                 <h3>Humidité du sol</h3>
+                <h2><?php if ($aSolList[0] != null) {echo($aSol->rdg_value);}?> %</h2>
             </div>
         </div>
         <hr style="clear: both;">

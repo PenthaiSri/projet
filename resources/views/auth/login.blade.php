@@ -44,7 +44,7 @@
         <!-- Div pour les href -->
         <div class="links">
             <div class="pwdforgot">
-                <a href="" style="text-decoration:none; color:#FFFFFF;">Mot de passe oublié ?</a>
+                <!-- <a href="" style="text-decoration:none; color:#FFFFFF;">Mot de passe oublié ?</a> -->
             </div>
             <div class="register">
                 <a href="register" style="text-decoration:none; color:#FFFFFF;">S'enregistrer</a>

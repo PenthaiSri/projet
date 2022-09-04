@@ -49,7 +49,7 @@ $data = json_decode($response);
                 <li><a href="list">Relevés</a></li>
                 <li><a href="weather">Météo</a></li>
                 <?php if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == User::ADMIN) { ?>
-                    <li><a href="list/create">Administration</a></li>
+                    <li><a href="admin/create">Administration</a></li>
                 <?php } ?>
                 <li><a href="logout" id="logout-button">Déconnexion</a></li>
             </ul>

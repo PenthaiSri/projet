@@ -5,6 +5,14 @@
     <title>Register page</title>
     <link rel="stylesheet" type="text/css" href="{{url('css/login.css')}}">
     <link rel="stylesheet" type="text/css" href="{{url('css/messages.css')}}">
+    <style>
+    body {
+        background-image: url('/projet/resources/images/background.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+    </style>
 </head>
 
 <body>

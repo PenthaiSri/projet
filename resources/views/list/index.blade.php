@@ -39,7 +39,7 @@ $aModuleList = $oModuleModel->getAll();
                 <li><a href="list">Relevés</a></li>
                 <li><a href="weather">Météo</a></li>
                 <?php if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == User::ADMIN) { ?>
-                    <li><a href="list/create">Administration</a></li>
+                    <li><a href="admin/create">Administration</a></li>
                 <?php } ?>
                 <li><a href="logout" id="logout-button">Déconnexion</a></li>
             </ul>
@@ -66,9 +66,17 @@ $aModuleList = $oModuleModel->getAll();
                     <tr>
                         <td><?php echo ($aModule->mde_id); ?></td>
                         <td><?php echo ($aModule->plant_name); ?></td>
-                        <td><?php echo ($aModule->ste_name); ?></td>
+                        <?php 
+                            if ($aModule->ste_id == 3) { ?>
+                                <td class="not-configured"><?php echo ($aModule->ste_name); ?></td>
+                            <?php } else { ?>
+                                <td><?php echo ($aModule->ste_name); ?></td>
+                            <?php }
+                        ?>
                         <td>
+                            <?php if ($aModule->ste_id != 3) {?> 
                             <a class="show-button" href="list/show?id=<?php echo($aModule->mde_id) ?>">Détails</a>
+                            <?php  } ?>
                             <?php if (isset($_SESSION['role_id']) && $_SESSION['role_id'] == User::ADMIN) { ?>
                                 <a class="edit-button" href="list/edit?id=<?php echo($aModule->mde_id) ?>">Modifier</a>
                                 <a class="delete-button" href="list/remove?id=<?php echo($aModule->mde_id) ?>">Supprimer</a>

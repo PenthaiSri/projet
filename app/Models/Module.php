@@ -85,6 +85,7 @@ class Module
         $fMaxHum,
     ) {
         $sRequest = DB::table('t_modules')->where('mde_id', '=', $iId)->update([
+            'ste_id' => 1,
             'plant_name' => $sName,
             'mde_locate' => $sLocate,
             'mde_description' => $sDesc,
@@ -124,6 +125,72 @@ class Module
     {
         $sRequest = DB::select('SELECT * FROM t_modules MDE
         LEFT JOIN tr_states STE ON MDE.ste_id = STE.ste_id');
+        return $sRequest;
+    }
+
+    /**
+     * Récupère le dernier relevé de température par id du module
+     * 
+     * @since   1.2207.0
+     * @version 1.2207.0
+     * 
+     * @param   integer $mde_id ID du Module
+     * 
+     * @return  array|boolean
+     */
+    public function getTemperatureByModId($mde_id){
+        $sRequest = DB::select('SELECT * FROM t_readings RDG
+        LEFT JOIN tr_arduino_sensors ARS ON RDG.ars_id = ARS.ars_id
+        LEFT JOIN t_modules MDE ON ARS.mde_id = MDE.mde_id
+        WHERE ARS.ars_name = "Temperature"
+        AND MDE.mde_id = '. $mde_id .'
+        ORDER BY RDG.rdg_datetime DESC
+        LIMIT 1
+        ');
+        return $sRequest;
+    }
+
+    /**
+     * Récupère le dernier relevé d'hygrométrie par id du module
+     * 
+     * @since   1.2207.0
+     * @version 1.2207.0
+     * 
+     * @param   integer $mde_id ID du module
+     * 
+     * @return  array|boolean
+     */
+    public function getHygroByModId($mde_id){
+        $sRequest = DB::select('SELECT * FROM t_readings RDG
+        LEFT JOIN tr_arduino_sensors ARS ON RDG.ars_id = ARS.ars_id
+        LEFT JOIN t_modules MDE ON ARS.mde_id = MDE.mde_id
+        WHERE ARS.ars_name = "Hygrometrie"
+        AND ARS.mde_id = '. $mde_id .'
+        ORDER BY RDG.rdg_datetime DESC
+        LIMIT 1
+        ');
+        return $sRequest;
+    }
+
+    /**
+     * Récupère le dernier relevé d'humidité du sol par id du module
+     * 
+     * @since   1.2207.0
+     * @version 1.2207.0
+     * 
+     * @param   integer $mde_id ID du module
+     * 
+     * @return  array|boolean
+     */
+    public function getSolByModId($mde_id){
+        $sRequest = DB::select('SELECT * FROM t_readings RDG
+        LEFT JOIN tr_arduino_sensors ARS ON RDG.ars_id = ARS.ars_id
+        LEFT JOIN t_modules MDE ON ARS.mde_id = MDE.mde_id
+        WHERE ARS.ars_name = "Sol"
+        AND MDE.mde_id = '. $mde_id .'
+        ORDER BY RDG.rdg_datetime DESC
+        LIMIT 1
+        ');
         return $sRequest;
     }
 }

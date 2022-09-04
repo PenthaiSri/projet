@@ -144,3 +144,10 @@ li a:hover {
     font-weight: bold;
     text-align: center;
 }
+
+.not-configured {
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(190, 76, 76);
+    font-weight: bold;
+}
