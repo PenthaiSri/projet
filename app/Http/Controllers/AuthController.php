@@ -80,7 +80,7 @@ class AuthController extends BaseController
                     $_SESSION['user_id'] = $aUser->usr_id;
                     $_SESSION['role_id'] = $aUser->role_id;
                     // On renvoie sur la page des relevés
-                    return redirect('list');
+                    return redirect('home');
                 } else {
                     return redirect('login')->with('message', 'Identifiants incorrects !');
                 }
